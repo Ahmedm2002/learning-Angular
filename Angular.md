@@ -127,3 +127,140 @@ Or
 ```
 <app-user />
 ```
+
+## Adding CSS library or Framework
+
+First install it using npm
+
+E.g
+
+```
+npm i bootstrap@latest
+```
+
+Add the npm folder path it in the options object present in the angular.json file
+
+angular.json
+
+```
+....
+
+ "styles": ["./node_modules/bootstrap/dist/css/bootstrap.min.css"],
+
+....
+```
+
+## Routing
+
+Routing is provided by default in angular
+
+In the app folder the file app.routes.ts is given to create routes
+
+Initially it looks like this
+
+```
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [];
+```
+
+To add routes create an object in the routes array with properties like path and component
+
+Make sure to import components in the routes folder that will be used for routing.
+
+```
+export const routes: Routes = [
+  {
+    path : "user"           // add url on which component will be served
+    component : userComponent     // add the name of the component
+  },
+];
+```
+
+import routerOutlet in the app.component.ts
+
+```
+...
+
+imports : [routerOutlet]
+
+...
+
+```
+
+Add router outlet tag in the app template (app.component.html)
+
+```
+<router-outlet></router-outlet>
+```
+
+To create navigation link in template
+
+use routerLink attribute
+
+First import the compoent in the app.component.ts file in order to use it
+
+E.g
+
+```
+<a routerLink = "/name-of-route">
+```
+
+## Data Binding
+
+Most important and powerful thing of angular is data binding
+
+How data is binded with the html
+
+OR
+
+Connecting the data present in the class (typescript) with the template (html)
+
+Data Binding is mainly of two types
+Here's an updated version of the nested markdown list with clearer explanations for each section:
+
+- **One-way binding (Two Types)**
+
+  1. **Class → Template (TS to HTML)**
+
+     a. Interpolation  
+     b. Property Binding
+
+  2. **Template → Class (HTML to TS)**
+
+     a. Event Binding
+
+- **Two-way binding**
+
+  1. Using `ngModel`
+
+#### **See this Diagram for more understanding**
+
+![Data Binding](./public/data-binding.png)
+
+- Interpolation : Used for printing variables in html template {{ variableName }}
+- Property Binding : Used for changing html properties values first enclose attribute in [] brackets and then add the value of variable
+
+```
+[placeholder] = namePlaceholder
+```
+
+- Event Binding : Used for performing tasks on dom events e.g click, mouseover enclose attr in () brackets and write the handler function name
+
+**.html file**
+
+```
+<button (click)="showMsg()">  DOWNLOAD </button>
+```
+
+**.ts file**
+
+Declare Function inside class component
+
+```
+export class DataBindingComponent {
+  showMsg() {
+    alert('Downloading started .......');
+  }
+}
+```

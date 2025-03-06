@@ -1,4 +1,9 @@
 .admin {
   background-color: teal;
   padding: 10px 30px;
+  text-align: center;
+  font-size: 3rem;
+  color: lightgray;
+  margin: 15px 10px;
+  border-radius: 10px;
 }

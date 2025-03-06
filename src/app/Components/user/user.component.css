@@ -1,0 +1,9 @@
+.user {
+  background-color: cornflowerblue;
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  margin: 15px 10px;
+  border-radius: 10px;
+}

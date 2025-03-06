@@ -1,0 +1,47 @@
+<div [class]="dataBindingStyles">Data Binding Works</div>
+<div class="row m-3 p-2 text-center bg-primary rounded">
+  <div class="p-2 text-center col-12 col-sm-6 bg-success">
+    {{ angular }}
+  </div>
+
+  <div class="p-2 text-center col-12 bg-danger col-sm-6">
+    {{ tutor }}
+  </div>
+</div>
+
+<p class="text-center m-3 rounded p-2 bg-info">
+  Tutorial Duration: {{ tutorialDuration }} Hrs
+</p>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <input
+        type="text"
+        class="form-control"
+        id="simpleInput"
+        [placeholder]="namePlaceholder"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col m-3">
+    <button type="button" class="btn btn-outline-primary" (click)="showMsg()">
+      DOWNLOAD
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <select (change)="showSelectedVal()">
+      <option value="">Select Value</option>
+      <option value="Iphone">Iphone</option>
+      <option value="Samsung">Samsung</option>
+      <option value="Vivo">Vivo</option>
+      <option value="Hawei">Hawei</option>
+    </select>
+  </div>
+</div>

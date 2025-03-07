@@ -1,4 +1,6 @@
-# Angular Concepts
+# Angular
+
+Angular was developed by Google and is a Js framework used to create single page applications (SPAs). It uses typescript as a default language.
 
 ## Project Initalization
 
@@ -106,7 +108,7 @@ export class AdminComponent {
 
 ### Rendering Component
 
-To use Component in another component first import it in the component.
+To use Component in another component first import it in the component ts file.
 
 Then write to component as an html tag to be rendered.
 
@@ -177,7 +179,7 @@ export const routes: Routes = [
 ];
 ```
 
-import routerOutlet in the app.component.ts
+Make sure to import routerOutlet in the app.component.ts
 
 ```
 ...
@@ -264,3 +266,31 @@ export class DataBindingComponent {
   }
 }
 ```
+
+## Signals
+
+Introduced in Angular 18
+
+Signals are used to handle reactive data in an angular application
+
+Understanding Signals with an Example
+
+Suppose you have a user name which is being displayed in mulitple components in your application like home, profile, friends, account etc now you want to make it sure that all the components have the same value so you wrap the name inside a signal
+
+#### Creating Signal
+
+```
+userName =  signal('John Doe')    // without specifying data type
+
+rollNo = signal<number>(23434)
+```
+
+Make sure to import the Signal component from angular/core in order to use it now
+
+**Signals are Called as a Method**
+
+_To singals value either in html or ts file it is always used as a method_
+
+#### Updating Signal
+
+To update signal use the .set() method

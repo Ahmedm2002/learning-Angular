@@ -294,3 +294,32 @@ _To singals value either in html or ts file it is always used as a method_
 #### Updating Signal
 
 To update signal use the .set() method
+
+## Directives
+
+Responsible for the change in structure of the DOM Element (DOM Manipulation)
+
+## Componnet Lifecycle
+
+It is the sequence of events that that take place during the life of a componnet
+
+The **Component Lifecycle** in Angular refers to the sequence of events that occur from the moment a component is created until it is destroyed. Every Angular component goes through a series of stages, and Angular provides lifecycle hooks at each of these stages, where you can run custom code.
+
+### Summary of the Lifecycle Hooks
+
+| Lifecycle Hook          | When It’s Called                                         | Purpose                                                  |
+| ----------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ngOnChanges`           | When input properties change                             | Detect changes in input properties                       |
+| `ngOnInit`              | After input properties are initialized                   | Perform initialization tasks                             |
+| `ngDoCheck`             | During every change detection cycle                      | Implement custom change detection                        |
+| `ngAfterContentInit`    | After content projection (ng-content) is initialized     | Interact with projected content                          |
+| `ngAfterContentChecked` | After every change detection cycle of projected content  | React to changes in projected content                    |
+| `ngAfterViewInit`       | After the component view and child views are initialized | Interact with the component's view and its child views   |
+| `ngAfterViewChecked`    | After every change detection cycle of the view           | React to changes in the component's view and child views |
+| `ngOnDestroy`           | Just before the component is destroyed                   | Clean up resources and avoid memory leaks                |
+
+---
+
+- Each lifecycle hook is triggered at specific times during the component’s life.
+- The most commonly used lifecycle hooks are `ngOnInit`, `ngOnDestroy`, and `ngOnChanges`.
+- Use `ngOnInit` for component initialization, `ngOnDestroy` for cleanup, and `ngOnChanges` to respond to input changes.

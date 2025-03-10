@@ -45,3 +45,22 @@
     </select>
   </div>
 </div>
+
+<div class="row">
+  <input [type]="checkboxInput" />
+
+  <p (mouseover)="mouseOver('Paragraph')">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque nulla
+    magnam aliquam, amet culpa suscipit nisi assumenda magni ducimus eos
+    voluptate doloremque explicabo tenetur exercitationem aperiam tempore
+    libero? Consequuntur, libero!
+  </p>
+</div>
+
+<div class="row">
+  <input type="text" [(ngModel)]="angular" />
+</div>
+
+<div class="row" (mouseover)="changeText()">
+  {{ cart() }}
+</div>

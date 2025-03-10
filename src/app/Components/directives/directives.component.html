@@ -1,0 +1,31 @@
+<button
+  (click)="togglevisibility()"
+  class="bg-primary p-2 rounded border-0 m-2"
+>
+  Toggle Visiblity
+</button>
+
+<div class="row">
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quae in
+    nulla aspernatur, beatae quam laudantium obcaecati ea accusantium eum
+    deleniti, voluptatibus nemo officia enim maxime facere, excepturi ut
+    repellat?
+  </p>
+</div>
+
+<div *ngIf="isVisible" class="row">
+  <div *ngFor="let name of names">
+    <h2 class="text-center">
+      {{ name }}
+    </h2>
+  </div>
+</div>
+
+<div class="row" *ngIf="num1 == num2">
+  <div class="p-3 m-2 rounded bg-info">Div To Be Hidden</div>
+</div>
+<div class="row">
+  <input type="number" [(ngModel)]="num1" class="col-3" />
+  <input type="number" [(ngModel)]="num2" class="col-3" />
+</div>

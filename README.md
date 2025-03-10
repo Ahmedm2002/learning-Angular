@@ -267,59 +267,13 @@ export class DataBindingComponent {
 }
 ```
 
-## Signals
-
-Introduced in Angular 18
-
-Signals are used to handle reactive data in an angular application
-
-Understanding Signals with an Example
-
-Suppose you have a user name which is being displayed in mulitple components in your application like home, profile, friends, account etc now you want to make it sure that all the components have the same value so you wrap the name inside a signal
-
-#### Creating Signal
-
-```
-userName =  signal('John Doe')    // without specifying data type
-
-rollNo = signal<number>(23434)
-```
-
-Make sure to import the Signal component from angular/core in order to use it now
-
-**Signals are Called as a Method**
-
-_To singals value either in html or ts file it is always used as a method_
-
-#### Updating Signal
-
-To update signal use the .set() method
-
 ## Directives
 
 Responsible for the change in structure of the DOM Element (DOM Manipulation)
 
-## Componnet Lifecycle
+To use directives in your components first must import **CommonModule** from angular/common
 
-It is the sequence of events that that take place during the life of a componnet
+Commonly Used Directives
 
-The **Component Lifecycle** in Angular refers to the sequence of events that occur from the moment a component is created until it is destroyed. Every Angular component goes through a series of stages, and Angular provides lifecycle hooks at each of these stages, where you can run custom code.
-
-### Summary of the Lifecycle Hooks
-
-| Lifecycle Hook          | When It’s Called                                         | Purpose                                                  |
-| ----------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ngOnChanges`           | When input properties change                             | Detect changes in input properties                       |
-| `ngOnInit`              | After input properties are initialized                   | Perform initialization tasks                             |
-| `ngDoCheck`             | During every change detection cycle                      | Implement custom change detection                        |
-| `ngAfterContentInit`    | After content projection (ng-content) is initialized     | Interact with projected content                          |
-| `ngAfterContentChecked` | After every change detection cycle of projected content  | React to changes in projected content                    |
-| `ngAfterViewInit`       | After the component view and child views are initialized | Interact with the component's view and its child views   |
-| `ngAfterViewChecked`    | After every change detection cycle of the view           | React to changes in the component's view and child views |
-| `ngOnDestroy`           | Just before the component is destroyed                   | Clean up resources and avoid memory leaks                |
-
----
-
-- Each lifecycle hook is triggered at specific times during the component’s life.
-- The most commonly used lifecycle hooks are `ngOnInit`, `ngOnDestroy`, and `ngOnChanges`.
-- Use `ngOnInit` for component initialization, `ngOnDestroy` for cleanup, and `ngOnChanges` to respond to input changes.
+- \*ngIf
+- \*ngFor

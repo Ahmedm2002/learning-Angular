@@ -1,0 +1,53 @@
+<h3>ngClass</h3>
+<div class="row bg-success p-3 m-3 rounded" [ngClass]="div1BgColor"></div>
+<div class="row">
+  <div class="col-3">
+    <button class="btn btn-danger text-white" (click)="makeRed()">
+      Make Red
+    </button>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-warning text-white" (click)="makeYellow()">
+      Make yellow
+    </button>
+  </div>
+</div>
+
+<div
+  class="row"
+  class="m-2 p-3"
+  [ngClass]="isDivActive ? 'bg-success' : 'bg-warning'"
+></div>
+
+<div class="row">
+  <div class="col-3">
+    <input type="checkbox" name="Laptop" id="" [(ngModel)]="isActive" />
+  </div>
+  <div
+    class="col-3 bg-success p-4 m-4"
+    [ngClass]="isActive ? 'bg-warning' : 'bg-info'"
+  ></div>
+</div>
+
+<h3>ngStyle</h3>
+
+<table class="table table-bordered table-stripped">
+  <tr>
+    <th>Sr.no</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Availablity</th>
+  </tr>
+  <tr *ngFor="let person of peoples; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ person.firstName }}</td>
+    <td>{{ person.lastName }}</td>
+    <td>{{ person.age }}</td>
+    <td>{{ person.email }}</td>
+    <td [ngStyle]="{ color: person.isAvailable ? 'black' : 'red' }">
+      {{ person.isAvailable ? "Available" : "Not-Available" }}
+    </td>
+  </tr>
+</table>

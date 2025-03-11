@@ -1,6 +1,8 @@
+<h3>*ngIf Examples</h3>
+
 <button
   (click)="togglevisibility()"
-  class="bg-primary p-2 rounded border-0 m-2"
+  class="bg-primary p-2 rounded border-0 m-2 text-white"
 >
   Toggle Visiblity
 </button>
@@ -29,3 +31,47 @@
   <input type="number" [(ngModel)]="num1" class="col-3" />
   <input type="number" [(ngModel)]="num2" class="col-3" />
 </div>
+
+<div class="row">
+  <input type="checkbox" [(ngModel)]="isActive" class="col-3" />
+
+  <div class="col-3">
+    <select name="" id="" [(ngModel)]="selectedCountry">
+      <option value=""></option>
+      <option value="USA">USA</option>
+      <option value="Europe">Europe</option>
+      <option value="Russia">Russia</option>
+      <option value="Egypt">Egypt</option>
+      <option value="Morroco">Morroco</option>
+    </select>
+  </div>
+</div>
+
+<div
+  *ngIf="isActive && selectedCountry === 'USA'"
+  class="row p-3 m-4 bg-success rounded"
+>
+  Page Section
+</div>
+
+<h3>*ngFor Examples</h3>
+
+<p>*ngFor always require an array</p>
+
+<div class="row">
+  <h2>Itterating on Peoples Array</h2>
+  <div *ngFor="let people of peoples" class="col-3 p-2">
+    <p><b>Name:</b> {{ people.firstName }} {{ people.lastName }}</p>
+    <p><b>Age:</b> {{ people.age }}</p>
+    <p><b>Email:</b> {{ people.email }}</p>
+    <p>
+      <b>Availablity: </b>
+      <span *ngIf="people.isAvailable">Avialable</span>
+      <span *ngIf="!people.isAvailable">Not-Available</span>
+    </p>
+  </div>
+</div>
+
+<select name="" id="">
+  <option *ngFor="let name of names" [value]="name">{{ name }}</option>
+</select>

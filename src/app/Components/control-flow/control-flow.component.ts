@@ -1,35 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-export interface Person {
-  firstName: string;
-  lastName: string;
-  age: number;
-  email: string;
-  isAvailable: boolean;
-}
-
+import { Person } from '../attribute-directive/attribute-directive.component';
 @Component({
-  selector: 'app-attribute-directive',
-  imports: [CommonModule, FormsModule],
-  templateUrl: './attribute-directive.component.html',
-  styleUrl: './attribute-directive.component.css',
+  selector: 'app-control-flow',
+  imports: [FormsModule],
+  templateUrl: './control-flow.component.html',
+  styleUrl: './control-flow.component.css',
 })
-export class AttributeDirectiveComponent {
-  div1BgColor: string = 'bg-info';
-  undifinedVal: any = NaN;
+export class ControlFlowComponent {
+  div1Visibility: boolean = true;
+  userExists: boolean = false;
 
-  makeRed() {
-    this.div1BgColor = 'bg-danger';
-  }
-
-  makeYellow() {
-    this.div1BgColor = 'bg-warning';
-  }
-
-  isDivActive: boolean = true;
-  isActive: boolean = true;
+  laptopCompanies: string[] = ['HP', 'Dell', 'Stone', 'Apple', 'Lenovo'];
+  selectedCompany: string = '';
 
   peoples: Person[] = [
     {

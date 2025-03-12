@@ -1,0 +1,36 @@
+@if(div1Visibility){
+<div class="row bg-primary p-3 m-4 rounded col-3">
+  <h3 class="text-white">Rendered Using Control Flow</h3>
+</div>
+} @if(userExists){
+<div class="row m-2 p-2 rounded bg-success">
+  <h3 class="text-white">Hy There</h3>
+</div>
+} @else {
+<div class="row m-4 p-2 rounded bg-danger col-3">
+  <h3 class="text-white">No User Found</h3>
+</div>
+}
+
+<div class="row">
+  <div class="col-3">
+    @for (company of laptopCompanies; track $index) {
+    {{ $index }}
+    -
+    <span>{{ company }}</span>
+    <br />
+    }
+  </div>
+  <div class="col-3">
+    <select [(ngModel)]="selectedCompany">
+      @for (company of laptopCompanies; track $index) {
+      <option [value]="company">{{ company }}</option>
+      }
+    </select>
+    <br />
+    <span class="mt-2"> Selected Company : {{ selectedCompany }} </span>
+  </div>
+</div>
+
+<h3>Switch Case</h3>
+

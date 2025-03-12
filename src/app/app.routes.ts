@@ -6,6 +6,8 @@ import { DirectivesComponent } from './Components/directives/directives.componen
 import { AttributeDirectiveComponent } from './Components/attribute-directive/attribute-directive.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { HomeComponent } from './Components/home/home.component';
+import { ControlFlowComponent } from './Components/control-flow/control-flow.component';
+import { PipesComponent } from './Components/pipes/pipes.component';
 
 export const routes: Routes = [
   {
@@ -25,7 +27,7 @@ export const routes: Routes = [
     component: DataBindingComponent,
   },
   {
-    path: 'directives',
+    path: 'structural-directives',
     component: DirectivesComponent,
   },
   {
@@ -33,7 +35,15 @@ export const routes: Routes = [
     component: AttributeDirectiveComponent,
   },
   {
+    path: 'control-flow',
+    component: ControlFlowComponent,
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
+  },
+  {
+    path: 'pipes',
+    component: PipesComponent,
   },
 ];

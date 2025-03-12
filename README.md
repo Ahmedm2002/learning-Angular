@@ -196,6 +196,8 @@ Add router outlet tag in the app template (app.component.html)
 <router-outlet></router-outlet>
 ```
 
+router-outlet is a directive which is responsible to render activated component.
+
 To create navigation link in template
 
 use routerLink attribute
@@ -206,6 +208,20 @@ E.g
 
 ```
 <a routerLink = "/name-of-route">
+```
+
+### Navigating from .ts file
+
+create an instance of router in the constructor (its is called injectables)
+
+E.g:
+
+```
+constructor( private : router: Router){}
+
+navigateToHome(){
+  this.router.navigateByUrl('home')
+}
 ```
 
 ## Data Binding
@@ -269,11 +285,34 @@ export class DataBindingComponent {
 
 ## Directives
 
-Responsible for the change in structure of the DOM Element (DOM Manipulation)
+- Strutural Direactives
+  Responsible for the change in structure of the DOM Element (DOM Manipulation)
 
 To use directives in your components first must import **CommonModule** from angular/common
 
 Commonly Used Directives
 
 - \*ngIf
-- \*ngFor
+- \*ngFor ( Requires Array )
+
+- Attribute Directives
+
+  Can only change the property cannot add or remove element
+
+  - \*ngStyles
+  - \*ngClass
+
+## Control Flow
+
+Angular templates support control flow blocks that let you conditionally show, hide, and repeat elements.
+This was previously accomplished with the structural Directives
+
+E.g @if, @else if , @else , @switch
+
+_**Does not needs any kinds of module imports for working as directives require commonModule to work properly**_
+
+## Pipes
+
+Pipe is basically used to format the data in the HTML Template
+
+First import the required pipe from angular/common in order to use it in your code

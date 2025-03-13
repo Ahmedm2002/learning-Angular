@@ -396,3 +396,25 @@ Usage in HTML File
 ```
 <div class="col-3">{{ city | na }}</div>
 ```
+
+## Forms
+
+Two main types of forms in Angular
+
+### 1. Template forms
+
+- More code in .html
+- Easy Validation
+- Less Code in .Ts
+- uses ngModel
+- Suitable for Simple Forms
+
+#### Steps
+
+1. Create object where all the fields are presend and then bind it to the input elements by ngModel
+
+2. On click of submit or click we will get the form Object
+
+3. Using the data and like sending to Api
+
+### 2. Reactive forms

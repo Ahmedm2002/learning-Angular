@@ -1,14 +1,14 @@
 <h3>Forms Home</h3>
-<div class="row text-center p-4">
-  <div class="col-6">
-    <a routerLink="template" class="text-black text-decoration-none"
-      >Template Forms</a
-    >
+<div class="row text-right p-4">
+  <div class="col-2 mt-5">
+    <div routerLink="template" class="linkText" routerLinkActive="activeLink">
+      Template Forms
+    </div>
+    <br />
+
+    <div routerLink="reactive" class="linkText" routerLinkActive="activeLink">
+      Reactive Forms
+    </div>
   </div>
-  <div class="col-6">
-    <a routerLink="reactive" class="text-black text-decoration-none"
-      >Reactive Forms</a
-    >
-  </div>
+  <div class="col-10"><router-outlet> </router-outlet></div>
 </div>
-<router-outlet> </router-outlet>

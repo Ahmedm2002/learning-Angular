@@ -453,4 +453,8 @@ Error Div
 </div>
 ```
 
+#### Validation
+
+Make a property with hash and store the ngModel in it and then perform the validation functions on the hash property
+
 ### 2. Reactive forms

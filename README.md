@@ -316,3 +316,83 @@ _**Does not needs any kinds of module imports for working as directives require 
 Pipe is basically used to format the data in the HTML Template
 
 First import the required pipe from angular/common in order to use it in your code
+
+#### Text Pipes
+
+- uppercase
+- lowercase
+- titlecase (First Letter Capital)
+
+#### Date Pipes
+
+Example
+
+```
+{{ variableName | date : 'format'}}
+
+{{ date | date : 'fullDate' }}
+
+{{ date | date : 'dd-MMM-yyyy' }}
+
+// Three M's shows the month name instead of number
+```
+
+#### JSON Pipes
+
+Used by Developer to print an object to the DOM
+
+```
+{{ currentTime | async | date : "hh:mm:ss" }}
+```
+
+#### Custom Pipe
+
+use the command to generate a new Pipe
+
+```
+ng g p <pipeName>
+```
+
+It will create tow files .ts and .spec.ts (for testing)
+
+1. .Ts File
+
+```
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'firstPipe'
+})
+export class FirstPipePipe implements PipeTransform {
+
+  transform(value: unknown, ...args: unknown[]): unknown {
+    return null;
+  }
+
+}
+```
+
+A Pipe always contains a transform functions which have two parms value and extra prams
+
+Sample Pipe to print 'No Value Present' if data is null, undefined or empty string
+
+```
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'na',
+})
+export class NaPipe implements PipeTransform {
+  transform(value: unknown, ...args: unknown[]): unknown {
+    if (value !== undefined && value !== null && value !== '') {
+      return value;
+    } else return 'No Value Present';
+  }
+}
+```
+
+Usage in HTML File
+
+```
+<div class="col-3">{{ city | na }}</div>
+```

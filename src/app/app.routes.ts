@@ -39,11 +39,11 @@ export const routes: Routes = [
     component: ControlFlowComponent,
   },
   {
-    path: '**',
-    component: PageNotFoundComponent,
-  },
-  {
     path: 'pipes',
     component: PipesComponent,
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
   },
 ];

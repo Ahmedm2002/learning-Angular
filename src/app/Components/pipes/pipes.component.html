@@ -1,3 +1,21 @@
 <div class="row">
-  {{ version | upperCase }}
+  <div class="col-3">
+    {{ versionDetails | uppercase }}
+  </div>
+
+  <div class="col-3">
+    {{ date | date : "fullDate" }}
+  </div>
+
+  <div class="col-3">
+    {{ employees | json }}
+  </div>
+  <div class="col-3">
+    {{ price | currency }}
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-3">Time: {{ currentTime | async | date : "hh:mm:ss" }}</div>
+  <div class="col-3">{{ city | na }}</div>
 </div>

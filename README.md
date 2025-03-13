@@ -417,4 +417,40 @@ Two main types of forms in Angular
 
 3. Using the data and like sending to Api
 
+_**Template forms use ngModel so when using ngModel inside a form tag it is necessary to add a name attribute in the input tag**_
+
+In order to give error on a specific field absence first give the input #value = "ngModel"
+
+then use the #value to target the input and perform validation
+
+**Sample Code**
+
+Input
+
+```
+<input
+  type="text"
+  class="form-control"
+  id="validationCustom01"
+  placeholder="E.g: John"
+  [(ngModel)]="userData.firstName"
+  name="firstName"
+  required
+  minlength="3"
+  #fName="ngModel"
+/>
+```
+
+Error Div
+
+```
+<div class="text-danger">
+  @if(fName.touched && fName.errors?.['required']) {
+  <span> Field Required </span>
+  } @else if(fName.touched && fName.errors?.['minlength']){
+  <span>Min 3 Chars Required</span>
+  }
+</div>
+```
+
 ### 2. Reactive forms

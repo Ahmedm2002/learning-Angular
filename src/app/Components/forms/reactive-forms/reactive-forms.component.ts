@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-reactive-forms',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './reactive-forms.component.html',
   styleUrl: './reactive-forms.component.css',
 })

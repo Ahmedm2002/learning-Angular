@@ -50,6 +50,11 @@ export const routes: Routes = [
     component: FormsHomeComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'template',
+        pathMatch: 'full',
+      },
+      {
         path: 'reactive',
         component: ReactiveFormsComponent,
       },

@@ -1,6 +1,7 @@
 // import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { zip } from 'rxjs';
 
 @Component({
   selector: 'app-template-form',
@@ -16,7 +17,7 @@ export class TemplateFormComponent {
     userName: '',
     city: '',
     state: '',
-    zipCode: '',
+    zip: '',
     accetpedTerms: false,
   };
 
@@ -25,6 +26,17 @@ export class TemplateFormComponent {
   onSubmit() {
     debugger;
     this.formValues = this.userData;
+    console.log(this.formValues);
+    this.userData = {
+      firstName: '',
+      lastName: '',
+      userName: '',
+      city: '',
+      state: '',
+      zip: '',
+      accetpedTerms: false,
+    };
+    alert('Data successfully submitted');
   }
 
   resetForm() {
@@ -34,7 +46,7 @@ export class TemplateFormComponent {
       userName: '',
       city: '',
       state: '',
-      zipCode: '',
+      zip: '',
       accetpedTerms: false,
     };
   }

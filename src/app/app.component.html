@@ -39,24 +39,59 @@
               >Admin</a
             >
           </li> -->
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <a
-              class="nav-link"
-              aria-disabled="true"
-              routerLink="structural-directives"
-              routerLinkActive="activeBtn"
-              >Structural Dir</a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
+              Forms
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#" routerLink="forms/template"
+                  >Template Forms</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" routerLink="forms/reactive"
+                  >Reactive Forms</a
+                >
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <a
-              class="nav-link"
-              aria-disabled="true"
-              routerLink="attribute-directive"
-              routerLinkActive="activeBtn"
-              >Attribute Dir</a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
+              Directives
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  routerLink="structural-directives"
+                  >Structural Direactives</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  routerLink="attribute-directive"
+                  >Structural Direactives</a
+                >
+              </li>
+            </ul>
           </li>
+
           <li class="nav-item">
             <a
               class="nav-link"
@@ -76,14 +111,25 @@
               >Pipes</a
             >
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item dropdown">
             <a
-              class="nav-link"
-              aria-disabled="true"
-              routerLink="forms"
-              routerLinkActive="activeBtn"
-              >Forms</a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
+              API-HTTP Client
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#" routerLink="http-api">Get</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" routerLink="#">Put</a>
+              </li>
+            </ul>
           </li>
         </ul>
         <form class="d-flex" role="search">

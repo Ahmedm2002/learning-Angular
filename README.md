@@ -517,3 +517,35 @@ firstName: new FormControl('Mark', [
   Validators.minLength(3),
 ]),
 ```
+
+## HTTP Client
+
+**It is a library provided in angular by default to make Api Calls**
+
+First add the provideHTTPClient function in the provide array in app.conifg.ts
+
+app.config.ts
+
+```
+providers: [
+  ....
+  provideHttpClient(),
+  ....
+],
+```
+
+Adding the HTTPClient in the component
+
+1. Adding by Constructor
+
+```
+constructor(private http: HTTPClient){
+  code
+}
+```
+
+2. Injecting in the component
+
+```
+http = inject(HTTPClient)
+```

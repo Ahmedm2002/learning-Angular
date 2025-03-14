@@ -11,6 +11,7 @@ import { PipesComponent } from './Components/pipes/pipes.component';
 import { FormsHomeComponent } from './Components/forms/forms-home/forms-home.component';
 import { ReactiveFormsComponent } from './Components/forms/reactive-forms/reactive-forms.component';
 import { TemplateFormComponent } from './Components/forms/template-form/template-form.component';
+import { GetApiComponent } from './Components/api/get-api/get-api.component';
 
 export const routes: Routes = [
   {
@@ -50,17 +51,26 @@ export const routes: Routes = [
     component: FormsHomeComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'template',
-        pathMatch: 'full',
-      },
-      {
         path: 'reactive',
         component: ReactiveFormsComponent,
       },
       {
         path: 'template',
         component: TemplateFormComponent,
+      },
+    ],
+  },
+  {
+    path: 'http-api',
+    children: [
+      {
+        path: '',
+        redirectTo: 'get',
+        pathMatch: 'full',
+      },
+      {
+        path: 'get',
+        component: GetApiComponent,
       },
     ],
   },

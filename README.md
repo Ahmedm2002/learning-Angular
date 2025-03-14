@@ -458,3 +458,62 @@ Error Div
 Make a property with hash and store the ngModel in it and then perform the validation functions on the hash property
 
 ### 2. Reactive forms
+
+Reactive form are complex
+
+- Create Form in the Class Component
+
+First import the necessary modules for creating reactive forms
+
+```
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+```
+
+1. Create a Form Group which includes all the fields that you are taking input from the user
+
+```
+userData : FormGroup = new FormGroup({
+  firstname : new FormControl()
+  ....
+  ....
+})
+```
+
+2. Bind the form with html
+
+In the form tag or any other tag in which the from is enclosed bind the name of the form to the property formGroup
+
+```
+<form [formGroup] = 'userData'>
+```
+
+3. Now the form has been binded with the Template next step is to bind every property with the property present in the formGroup give the name of the property to the attribute formControlName
+
+```
+<input type='text' formControlName = 'firstName'>
+....
+....
+```
+
+4. Receiving data from reactive form
+
+the forms value is present inside the forms object.value
+
+```
+formValues: any
+
+onSubmit(){
+  this.formValues = this.userData.value
+}
+```
+
+#### Validation
+
+To give validation constraints import validators and use them when initializing the formGroup
+
+```
+firstName: new FormControl('Mark', [
+  Validators.required,
+  Validators.minLength(3),
+]),
+```

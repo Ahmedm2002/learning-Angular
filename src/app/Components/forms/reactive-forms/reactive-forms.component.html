@@ -1,5 +1,5 @@
 <div class="row p-3">
-  <form class="row g-3 needs-validation" novalidate>
+  <form class="row g-3 needs-validation" novalidate [formGroup]="userData">
     <div class="col-md-4">
       <label for="validationCustom01" class="form-label">First name</label>
       <input
@@ -7,9 +7,19 @@
         class="form-control"
         id="validationCustom01"
         value="Mark"
+        formControlName="firstName"
         required
       />
-      <div class="valid-feedback">Looks good!</div>
+      <div class="text-danger">
+        @if(userData.controls['firstName'].touched &&
+        userData.controls['firstName'].errors?.['required']){
+        <span>Field Required</span>
+
+        } @else if (userData.controls['firstName'].touched &&
+        userData.controls['firstName'].errors?.['minlength'] ){
+        <span>Min 3 Character Required</span>
+        }
+      </div>
     </div>
     <div class="col-md-4">
       <label for="validationCustom02" class="form-label">Last name</label>
@@ -18,10 +28,21 @@
         class="form-control"
         id="validationCustom02"
         value="Otto"
+        formControlName="lastName"
         required
       />
-      <div class="valid-feedback">Looks good!</div>
     </div>
+    <div class="text-danger">
+      @if(userData.controls['lastName'].touched &&
+      userData.controls['lastName'].errors?.['required']){
+      <span>Field Required</span>
+
+      } @else if (userData.controls['lastName'].touched &&
+      userData.controls['lastName'].errors?.['minlength'] ){
+      <span>Min 3 Character Required</span>
+      }
+    </div>
+
     <div class="col-md-4">
       <label for="validationCustomUsername" class="form-label">Username</label>
       <div class="input-group has-validation">
@@ -31,9 +52,17 @@
           class="form-control"
           id="validationCustomUsername"
           aria-describedby="inputGroupPrepend"
+          formControlName="userName"
           required
         />
-        <div class="invalid-feedback">Please choose a username.</div>
+      </div>
+      <div class="text-danger">
+        @if (userData.controls['userName'].errors?.['required'] &&
+        userData.controls['userName'].touched){
+        <span>Required Field</span>
+        }@else if (userData.controls['userName'].errors?.['email']) {
+        <span>Invalid Email</span>
+        }
       </div>
     </div>
     <div class="col-md-6">
@@ -42,13 +71,19 @@
         type="text"
         class="form-control"
         id="validationCustom03"
+        formControlName="city"
         required
       />
       <div class="invalid-feedback">Please provide a valid city.</div>
     </div>
     <div class="col-md-3">
       <label for="validationCustom04" class="form-label">State</label>
-      <select class="form-select" id="validationCustom04" required>
+      <select
+        class="form-select"
+        formControlName="state"
+        id="validationCustom04"
+        required
+      >
         <option selected disabled value="">Choose...</option>
         <option>...</option>
       </select>
@@ -59,6 +94,7 @@
       <input
         type="text"
         class="form-control"
+        formControlName="zipCode"
         id="validationCustom05"
         required
       />
@@ -71,6 +107,7 @@
           type="checkbox"
           value=""
           id="invalidCheck"
+          formControlName="hasAcceptedTerms"
           required
         />
         <label class="form-check-label" for="invalidCheck">
@@ -80,7 +117,14 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button
+        class="btn btn-primary"
+        [disabled]="userData.invalid"
+        (click)="submitData()"
+        type="submit"
+      >
+        Submit form
+      </button>
     </div>
   </form>
 </div>

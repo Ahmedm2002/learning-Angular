@@ -1,13 +1,47 @@
+import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, CSP_NONCE, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-get-api',
   standalone: true,
-  imports: [],
+  imports: [JsonPipe],
   templateUrl: './get-api.component.html',
   styleUrl: './get-api.component.css',
 })
 export class GetApiComponent {
-  constructor(private http: HttpClient) {}
+  // Using Dependency Injectsion
+
+  // http = Inject(HttpClient);
+
+  // Using Constructor
+  constructor(private http: HttpClient) {
+    this.getAllUser();
+    this.getCustomers();
+  }
+
+  userList: any[] = [];
+
+  getAllUser() {
+    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(
+      (res: any) => {
+        console.log(res);
+        this.userList = res;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  customerList: any[] = [];
+
+  getCustomers() {
+    this.http
+      .get('https://projectapi.gerasim.in/api/RealEstate/GetAllCustomers')
+      .subscribe((res: any) => {
+        console.log(res);
+        this.customerList = res.data;
+      });
+  }
 }

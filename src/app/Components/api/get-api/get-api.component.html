@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-2">
+    <h2>Users:</h2>
+  </div>
+  <div class="col-3">
+    <select name="" id="" class="mt-2">
+      @for(user of userList ; track $index){
+      <option [value]="user.id">{{ user.name }}</option>
+      }
+    </select>
+  </div>
+</div>
+
+<br />
+
+<div class="row text-center">
+  <div class="col-3">
+    <h2>Customers:</h2>
+  </div>
+  <div class="col-3">
+    <select name="" id="" class="mt-2">
+      @for(customer of customerList ; track $index){
+      <option [value]="customer.userId">{{ customer.userName }}</option>
+      }
+    </select>
+  </div>
+</div>

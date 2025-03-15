@@ -522,7 +522,7 @@ firstName: new FormControl('Mark', [
 
 **It is a library provided in angular by default to make Api Calls**
 
-First add the provideHTTPClient function in the provide array in app.conifg.ts
+First import and add the provideHTTPClient function in the provide array in app.conifg.ts
 
 app.config.ts
 
@@ -548,4 +548,24 @@ constructor(private http: HTTPClient){
 
 ```
 http = inject(HTTPClient)
+```
+
+### Making Request
+
+Create the fucntion that whill get the data
+
+```
+getUsers(){
+  this.http.get('url').suscrible((res:any) =>{
+    console.log(res)
+  } )
+}
+```
+
+To get data on component load put the funtion inside the class constructor
+
+```
+constructor(private http: HttpClient) {
+  this.getUser();
+}
 ```

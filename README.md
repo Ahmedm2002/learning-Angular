@@ -609,3 +609,97 @@ On Submit Call the post method and handle the response accordingly
 ### Put Request
 
 Used to update value in the server
+
+## Services
+
+The Component should be a lightweight and the api calls should not be included in it
+
+**_Service_** : A Service is a file where the resulabe code is present
+
+Mostly service is used for api calls
+
+### Creating a Service
+
+Use command to create service
+
+```
+ng g s <serviceName>
+```
+
+Two files will be initilized
+
+```
+<serviceName>.service.ts
+<serviceName>.service.spec.ts
+```
+
+Inside the <serviceName>.service.ts file in the constructor initialize an HTTPClient
+
+```
+constructor(private http: HTTPClient){}
+```
+
+Make Sure to import the HTTPClient Module first then use it
+
+Create functiosn and return the api result to the function
+
+#### Get Request
+
+```
+getDepartments() {
+  return this.http.get(
+    'https://projectapi.gerasim.in/api/Complaint/GetParentDepartment'
+  );
+}
+```
+
+#### Post Request
+
+```
+saveNewDept(department: any) {
+  return this.http.post(
+    'https://projectapi.gerasim.in/api/Complaint/AddNewDepartment',
+    department
+  );
+}
+```
+
+### Using the service in another module
+
+Now in the module you want to use initialize the serve in the constructor of that module
+
+```
+constructor(private deptServ: ServiceClassName){}
+```
+
+Make sure to import hte ServiceClassName Compoenet in order to use the service
+
+#### Using Service
+
+It is similar just in the place of the api the name of the handler function in the service is written
+
+**Get Request**
+
+```
+getDepartments() {
+  this.deptSer.getDepartments().subscribe(
+    (res: any) => (this.departmentList = res.data),
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+```
+
+**Post Request**
+
+```
+saveNewDept(department: any) {
+  return this.http.post(
+    'https://projectapi.gerasim.in/api/Complaint/AddNewDepartment',
+    department
+  );
+}
+```
+
+Servies can also be used to write business logic

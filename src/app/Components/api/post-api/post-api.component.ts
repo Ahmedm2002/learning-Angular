@@ -7,16 +7,22 @@ import {
   Validators,
 } from '@angular/forms';
 import { DepartmentService } from '../../../service/department.service';
+import { AlertComponent } from '../../../alert/alert.component';
+import { CustomBtnComponent } from '../../../resueable-components/custom-btn/custom-btn.component';
 
 @Component({
   selector: 'app-post-api',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, AlertComponent, CustomBtnComponent],
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css',
 })
 export class PostApiComponent implements OnInit {
   ngOnInit(): void {
     this.getDepartments();
+  }
+
+  getData(data: any) {
+    console.log(data);
   }
 
   departmentList: any[] = [];

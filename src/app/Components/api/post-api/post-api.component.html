@@ -1,7 +1,15 @@
+<app-alert message="Welcome to dashboard" styles="alert alert-info" />
+<app-custom-btn
+  btnText="Click Me"
+  btnStyles="btn btn-primary"
+  (onBtnClick)="getData($event)"
+></app-custom-btn>
 <div class="row">
   <div class="col-8">
     <div class="col-12">
-      <table class="table table-bordered text-center">
+      <table
+        class="table table-bordered text-center table-striped table-dark table-hover"
+      >
         <thead>
           <tr>
             <th>Sr No</th>
@@ -31,14 +39,19 @@
               >
                 Edit Record
               </button>
-
+              <!-- 
               <button
                 type="reset"
                 (click)="deleteRecord(department)"
                 class="btn btn-danger col-4 text-center"
               >
                 Delete
-              </button>
+              </button> -->
+              <app-custom-btn
+                btnStyles="btn btn-danger col-4 text-center"
+                btnText="Delete"
+                (onBtnClick)="deleteRecord(department)"
+              />
             </td>
           </tr>
           }

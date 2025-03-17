@@ -6,6 +6,8 @@ Angular was developed by Google and is a Js framework used to create single page
 
 ### Angular Cli
 
+Angular cli is a command line tool which is used to create, develop, test, deploy and maintain Angular applications directly from command shell
+
 Install angular cli to create and manage angular projects
 
 ```
@@ -703,3 +705,83 @@ saveNewDept(department: any) {
 ```
 
 Servies can also be used to write business logic
+
+## @Input @Output
+
+Primarily used for transfer of data between parent and child component
+
+@Input : Parent to child
+@Output : Child to parent
+
+They are also used to make Resuable Components
+
+1. @Input
+
+First creates the variables that are will be used in the child component
+with @Input adding before the variable
+
+alert.component.ts
+
+```
+@Input() message: string = '';
+```
+
+Bind the variable in the Template file
+
+```
+<p> {{message}} </p>
+```
+
+Using in Parent Component
+
+Add the selector of the component as a html tag and provide the variable as a prop to it
+
+```
+<app-alert message="'Hello There'"> </app-alert>
+```
+
+Or
+
+```
+<app-alert message="'Hello There'" />
+```
+
+2. @Output
+
+Used to send data to the parent component
+
+Create an output and event emitter
+
+```
+@Output() onBtnClick = new EventEmitter<any>()
+```
+
+Emit(send) specific value on specific event let's say we want to send data on button click
+
+Create button
+
+```
+<button (click)="onClick()"> {{btnText}} </button>
+```
+
+Now emit the value when the button is clicked
+
+```
+onClick(){
+  this.onBtnClick.emit('Value passed to parent from chid')
+}
+```
+
+In Parent Component
+
+```
+<app-custom-btn (onBtnClick)="getData($event)" />
+```
+
+Always use $event to get value from the child in parent component
+
+```
+getData(data: any) {
+  console.log(data)
+}
+```

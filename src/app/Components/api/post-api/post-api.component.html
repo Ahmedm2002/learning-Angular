@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-8">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card p-2" [formGroup]="deptForm">
+      <h4>New Department</h4>
+      <div class="row">
+        <div class="col-12">
+          <label for="">Department Name</label>
+          <input
+            type="text"
+            formControlName="departmentName"
+            class="form-control"
+            placeholder="Enter Name"
+          />
+        </div>
+
+        <div class="text-danger">
+          @if(deptForm.controls['departmentName'].errors?.['required'] &&
+          deptForm.controls['departmentName'].touched){
+          <span>Field Required</span>
+          }
+        </div>
+
+        <div class="col-12 mt-2">
+          <label for="">Department Logo</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="departmentLogo"
+            placeholder="Enter Logo Url"
+          />
+        </div>
+
+        <div class="text-danger">
+          @if(deptForm.controls['departmentLogo'].touched &&
+          deptForm.controls['departmentLogo'].errors?.['required']){
+          <span>Field Required</span>
+          }
+        </div>
+      </div>
+      <div class="row pt-3">
+        <div class="col-6 text-center">
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+        <div class="col-6 text-center">
+          <button
+            type="reset"
+            [disabled]="deptForm.invalid"
+            (click)="onSubmit()"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -522,7 +522,11 @@ firstName: new FormControl('Mark', [
 
 **It is a library provided in angular by default to make Api Calls**
 
+_**IF the data has an unknown shape, then a safer alternative to any is to use the unknown type as the response type.**_
+
 First import and add the provideHTTPClient function in the provide array in app.conifg.ts
+
+By default angular uses the XMLHTTP method to change this import withFetch() and pass a parameter to the provideHttpClient() function
 
 app.config.ts
 
@@ -550,7 +554,7 @@ constructor(private http: HTTPClient){
 http = inject(HTTPClient)
 ```
 
-### Making Request
+### Get Request
 
 Create the fucntion that whill get the data
 
@@ -568,4 +572,36 @@ To get data on component load put the funtion inside the class constructor
 constructor(private http: HttpClient) {
   this.getUser();
 }
+```
+
+By default HTTPClient assumes that the server will send json data however to change this behaviour you can mention datatype while making the request
+
+```
+this.http.get('url',{responseType: text | buffer | blob | arraybuffer })
+```
+
+### Post Request
+
+First check which object is requried to send in the api
+
+then create that object and bind the form with that object
+
+On Submit Call the post method and handle the response accordingly
+
+```
+ onSubmit() {
+  this.http
+    .post('https://projectapi.gerasim.in/api/Complaint/AddNewDepartment', {
+      departmentId: 0,
+      ...this.deptForm.value,
+    })
+    .subscribe((res: any) => {
+      if (res.result) {
+        alert('Success');
+        this.getDepartments();
+      } else {
+        alert(res.message);
+      }
+    });
+  }
 ```

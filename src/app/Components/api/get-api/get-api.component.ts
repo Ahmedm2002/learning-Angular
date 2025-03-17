@@ -1,11 +1,11 @@
-import { JsonPipe } from '@angular/common';
+// import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, CSP_NONCE, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-get-api',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './get-api.component.html',
   styleUrl: './get-api.component.css',
 })

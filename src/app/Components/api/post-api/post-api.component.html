@@ -7,16 +7,24 @@
             <th>Sr No</th>
             <th>Name</th>
             <th>City</th>
-            <th>Status</th>
+            <th>Logo</th>
           </tr>
         </thead>
         <tbody>
+          @for(department of departmentList ; track $index){
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ department.departmentId }}</td>
+            <td>{{ department.departmentName }}</td>
+            <td>
+              @if(department.departmentLogo){
+              <span>{{ department.departmentLogo }}</span>
+              }@else {
+              <span class="text-danger">No Logo Exits</span>
+              }
+            </td>
           </tr>
+          }
         </tbody>
       </table>
     </div>
@@ -51,17 +59,12 @@
             placeholder="Enter Logo Url"
           />
         </div>
-
-        <div class="text-danger">
-          @if(deptForm.controls['departmentLogo'].touched &&
-          deptForm.controls['departmentLogo'].errors?.['required']){
-          <span>Field Required</span>
-          }
-        </div>
       </div>
       <div class="row pt-3">
         <div class="col-6 text-center">
-          <button type="reset" class="btn btn-secondary">Reset</button>
+          <button type="reset" class="btn btn-secondary" (click)="resetForm()">
+            Reset
+          </button>
         </div>
         <div class="col-6 text-center">
           <button

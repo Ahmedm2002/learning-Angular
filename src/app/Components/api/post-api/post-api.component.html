@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-8">
     <div class="col-12">
-      <table class="table table-bordered">
+      <table class="table table-bordered text-center">
         <thead>
           <tr>
             <th>Sr No</th>
+            <th>Id</th>
             <th>Name</th>
-            <th>City</th>
             <th>Logo</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +23,22 @@
               }@else {
               <span class="text-danger">No Logo Exits</span>
               }
+            </td>
+            <td class="text-center">
+              <button
+                class="btn btn-primary col-5 text-center m-1"
+                (click)="onEdit(department)"
+              >
+                Edit Record
+              </button>
+
+              <button
+                type="reset"
+                (click)="deleteRecord(department)"
+                class="btn btn-danger col-4 text-center"
+              >
+                Delete
+              </button>
             </td>
           </tr>
           }
@@ -61,12 +78,14 @@
         </div>
       </div>
       <div class="row pt-3">
-        <div class="col-6 text-center">
+        <div class="col-3 text-center">
           <button type="reset" class="btn btn-secondary" (click)="resetForm()">
             Reset
           </button>
         </div>
-        <div class="col-6 text-center">
+
+        @if(deptForm.controls['departmentId'].value === 0){
+        <div class="col-3 text-center">
           <button
             type="reset"
             [disabled]="deptForm.invalid"
@@ -76,6 +95,13 @@
             Submit
           </button>
         </div>
+        } @else {
+        <div class="col-3 text-center">
+          <button type="reset" (click)="onUpdate()" class="btn btn-warning">
+            Update
+          </button>
+        </div>
+        }
       </div>
     </div>
   </div>

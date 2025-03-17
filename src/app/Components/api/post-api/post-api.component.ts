@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
@@ -21,7 +21,7 @@ export class PostApiComponent implements OnInit {
   departmentList: any[] = [];
 
   deptForm = new FormGroup({
-    // depratmetId: new FormControl(0),
+    departmentId: new FormControl(0),
     departmentName: new FormControl('', [Validators.required]),
     departmentLogo: new FormControl(''),
   });
@@ -38,6 +38,11 @@ export class PostApiComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.result) {
           alert('Success');
+          this.deptForm.setValue({
+            departmentId: 0,
+            departmentName: '',
+            departmentLogo: '',
+          });
           this.getDepartments();
         } else {
           alert(res.message);
@@ -51,16 +56,72 @@ export class PostApiComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.result) {
           this.departmentList = res.data;
-          console.log(res.data);
         } else {
-          console.log(res.message);
           alert(res.message);
         }
       });
   }
 
   resetForm() {
-    console.log('Reset Invoked');
-    this.deptForm.reset();
+    this.deptForm.setValue({
+      departmentId: 0,
+      departmentName: '',
+      departmentLogo: '',
+    });
+  }
+
+  onEdit(department: any) {
+    this.deptForm.setValue({
+      departmentId: department.departmentId,
+      departmentName: department.departmentName,
+      departmentLogo: department.departmentLogo,
+    });
+  }
+
+  onUpdate() {
+    console.log(this.deptForm.value);
+    this.http
+      .post(
+        'https://projectapi.gerasim.in/api/Complaint/UpdateDepartment',
+        this.deptForm.value
+      )
+      .subscribe(
+        (res: any) => {
+          if (res.result) {
+            alert('Deptartment Updated Succesfully');
+            this.getDepartments();
+            this.resetForm();
+          }
+        },
+        (error) => {
+          console.log(error);
+          alert(error);
+        }
+      );
+  }
+
+  deleteRecord(department: any) {
+    const confirmDelete = confirm(
+      `Are you sure to delete ${department.departmentName} department`
+    );
+    if (confirmDelete) {
+      this.http
+        .delete(
+          'https://projectapi.gerasim.in/api/Complaint/DeletedepartmentBydepartmentId?departmentId=' +
+            department.departmentId
+        )
+        .subscribe(
+          (res: any) => {
+            if (res.result) {
+              alert('Depratment deleted successfully');
+              this.getDepartments();
+            }
+          },
+          (error) => {
+            console.log(error);
+            alert('Error deleting department, Try again');
+          }
+        );
+    }
   }
 }

@@ -605,3 +605,7 @@ On Submit Call the post method and handle the response accordingly
     });
   }
 ```
+
+### Put Request
+
+Used to update value in the server

@@ -885,3 +885,10 @@ onClick(){
 ```
 
 **@ViewChild() is similar to document.getElementById()**
+
+## ng-container
+
+ng-container is also a directive
+It is also an imaginory div or html element
+
+**_See ng-container component for detailed information_**

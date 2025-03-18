@@ -15,6 +15,7 @@ import { GetApiComponent } from './Components/api/get-api/get-api.component';
 import { PostApiComponent } from './Components/api/post-api/post-api.component';
 import { LifeCycleComponent } from './Components/life-cycle/life-cycle.component';
 import { NgTemplateComponent } from './Components/directives/ng-template/ng-template.component';
+import { NgContainerComponent } from './Components/directives/ng-container/ng-container.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +45,10 @@ export const routes: Routes = [
   {
     path: 'ng-template',
     component: NgTemplateComponent,
+  },
+  {
+    path: 'ng-container',
+    component: NgContainerComponent,
   },
   {
     path: 'control-flow',

@@ -3,7 +3,7 @@ import { UserComponent } from './Components/user/user.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { DataBindingComponent } from './Components/data-binding/data-binding.component';
 import { DirectivesComponent } from './Components/directives/directives.component';
-import { AttributeDirectiveComponent } from './Components/attribute-directive/attribute-directive.component';
+import { AttributeDirectiveComponent } from './Components/directives/attribute-directive/attribute-directive.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ControlFlowComponent } from './Components/control-flow/control-flow.component';
@@ -14,6 +14,7 @@ import { TemplateFormComponent } from './Components/forms/template-form/template
 import { GetApiComponent } from './Components/api/get-api/get-api.component';
 import { PostApiComponent } from './Components/api/post-api/post-api.component';
 import { LifeCycleComponent } from './Components/life-cycle/life-cycle.component';
+import { NgTemplateComponent } from './Components/directives/ng-template/ng-template.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,10 @@ export const routes: Routes = [
   {
     path: 'attribute-directive',
     component: AttributeDirectiveComponent,
+  },
+  {
+    path: 'ng-template',
+    component: NgTemplateComponent,
   },
   {
     path: 'control-flow',

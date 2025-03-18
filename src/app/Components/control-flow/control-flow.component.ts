@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Person } from '../attribute-directive/attribute-directive.component';
+import { Person } from '../directives/attribute-directive/attribute-directive.component';
 @Component({
   selector: 'app-control-flow',
   imports: [FormsModule],

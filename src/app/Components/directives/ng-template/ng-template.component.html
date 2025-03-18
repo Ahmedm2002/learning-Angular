@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-3">
+    <div class="p-3 m-2 bg-info rounded" *ngIf="isLoggedIn; else notLoggedIn">
+      Welcome {{ userName }}
+    </div>
+
+    <ng-template #notLoggedIn>
+      <div class="bg-danger rounded p-3 m-2 text-w">
+        <span>Please Log in to continue</span>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="col-3">
+    <ng-template #dynamicPara>
+      <p>Paragraph</p>
+    </ng-template>
+  </div>
+
+  <div class="col-3">
+    <button class="btn btn-info" (click)="loadHtml()">Render Paragraph</button>
+
+    <div #dynamicContainer></div>
+  </div>
+</div>
+
+<div class="row m-2">
+  <button (click)="toggleLogInStatus()" class="col-2 btn btn-primary">
+    Toggle Visiblity
+  </button>
+</div>

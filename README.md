@@ -591,21 +591,21 @@ then create that object and bind the form with that object
 On Submit Call the post method and handle the response accordingly
 
 ```
- onSubmit() {
-  this.http
-    .post('https://projectapi.gerasim.in/api/Complaint/AddNewDepartment', {
-      departmentId: 0,
-      ...this.deptForm.value,
-    })
-    .subscribe((res: any) => {
-      if (res.result) {
-        alert('Success');
-        this.getDepartments();
-      } else {
-        alert(res.message);
-      }
-    });
-  }
+onSubmit() {
+this.http
+  .post('https://projectapi.gerasim.in/api/Complaint/AddNewDepartment', {
+    departmentId: 0,
+    ...this.deptForm.value,
+  })
+  .subscribe((res: any) => {
+    if (res.result) {
+      alert('Success');
+      this.getDepartments();
+    } else {
+      alert(res.message);
+    }
+  });
+}
 ```
 
 ### Put Request
@@ -833,3 +833,55 @@ When a value that is being passed to a resulabe component is changed then this i
 - afterViewInit
 - onDestroy
 - onChange
+
+## ng-template directive
+
+It is a directive like ngIf, ngFor etc.
+
+It is a hidden/imaginory div that has to be initialzed in order to make it visilbe
+
+First create the section which you want ot display conditionlay
+
+**Note: @if @else can also be used but if the block has to be displayed in multiple places then it is best**
+
+```
+<ng-template #notLoggedIn>
+  <div class="bg-danger rounded col-3 p-3 m-2">
+    <span>Please Log in to continue</span>
+  </div>
+</ng-template
+```
+
+Then wirte it in the else condition in ngIf directive
+
+```
+<div
+  class="col-3 p-3 m-2 bg-info rounded"
+  *ngIf="isLoggedIn; else notLoggedIn"
+>
+  Welcome {{ userName }}
+</div>
+```
+
+Wrap ui in template which won't render unless you don't
+
+### Dynamically Loading Template
+
+create the ViewChild of both element the parent and the ng template which is to be displayed
+
+```
+@ViewChild('origninalHashName') customName : TemplateRef <any> | undefined
+@ViewChild('origninalHashName', {read : ViewContainerRef}) customName : ViewContainerRef <any> | undefined   // in which ng-template is to be rendered
+```
+
+Display on click event
+
+```
+onClick(){
+  if(this.container){
+    this.container?.createEmbededView('templateCustomName')
+  }
+}
+```
+
+**@ViewChild() is similar to document.getElementById()**

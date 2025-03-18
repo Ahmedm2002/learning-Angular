@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  background: #795548;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(https://media.timeout.com/images/105683988/image.jpg);
+  background-size: 100% 100vh;
+  filter: blur(5px);
+}
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: #03a9f4;
+  opacity: 0.5;
+}
+.container .box {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 30px 50px;
+  width: 400px;
+  box-sizing: border-box;
+  z-index: 3;
+}
+.container .box h1 {
+  display: inline-block;
+  font-size: 30px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.container .box .row {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+}
+.container .box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #262626;
+  color: #aaa;
+}
+.container .box input:focus,
+.container .box input:valid {
+  border-color: #03a9f4;
+}
+.container .box button {
+  text-decoration: none;
+  color: #707070;
+  margin: 15px 0;
+}
+.container .box button {
+  display: inline-block;
+  background: #03a9f4;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+.container .box button:hover {
+  background: #ff5722;
+}
+.container .box .row:nth-of-type(1)::before,
+.container .box .row:nth-of-type(2)::before {
+  content: "";
+  font-family: fontAwesome;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  cursor: pointer;
+}
+.container .box .row:nth-of-type(1)::before {
+  content: "\f007";
+}
+.container .box .row:nth-of-type(2)::before {
+  content: "\f023";
+}
+
+button {
+  border: none !important;
+}

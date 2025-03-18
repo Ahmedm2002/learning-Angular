@@ -1,0 +1,198 @@
+<div class="d-flex flex-column min-vh-100">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid text-center">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul
+          class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+          style="--bs-scroll-height: 100px"
+        >
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="data-binding"
+              routerLinkActive="activeBtn"
+              >Data Binding</a
+            >
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLinkActive="activeBtn" routerLink="user"
+              >User</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="activeBtn" routerLink="admin"
+              >Admin</a
+            >
+          </li> -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Forms
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#" routerLink="forms/template"
+                  >Template Forms</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" routerLink="forms/reactive"
+                  >Reactive Forms</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Directives
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  routerLink="structural-directives"
+                  >Structural Direactives</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  routerLink="attribute-directive"
+                  >Attribute Direactives</a
+                >
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#" routerLink="ng-template"
+                  >Ng Template</a
+                >
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#" routerLink="ng-container"
+                  >Ng Container</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-disabled="true"
+              routerLink="control-flow"
+              routerLinkActive="activeBtn"
+              >Control Flow</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-disabled="true"
+              routerLink="pipes"
+              routerLinkActive="activeBtn"
+              >Pipes</a
+            >
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              API-HTTP Client
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#" routerLink="http-api">Get</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" routerLink="http-api/post"
+                  >Post</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-disabled="true"
+              routerLink="lifecyclehooks"
+              routerLinkActive="activeBtn"
+              >Life Cycle Hooks</a
+            >
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Decorators
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#" routerLink="view-child"
+                  >View Child</a
+                >
+              </li>
+              <!-- <li>
+                <a class="dropdown-item" href="#" routerLink="http-api/post"
+                  >Post</a
+                >
+              </li> -->
+            </ul>
+          </li>
+        </ul>
+        <button class="btn btn-danger" (click)="logOut()">Log Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="p-2 m-3 flex-fill">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center bg-body-tertiary mt-auto">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05)">
+      © 2020 Copyright:
+      <a class="text-body" href="#">Ahmed Mujtaba</a>
+    </div>
+  </footer>
+</div>

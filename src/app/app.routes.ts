@@ -17,90 +17,106 @@ import { LifeCycleComponent } from './Components/life-cycle/life-cycle.component
 import { NgTemplateComponent } from './Components/directives/ng-template/ng-template.component';
 import { NgContainerComponent } from './Components/directives/ng-container/ng-container.component';
 import { ViewChildComponent } from './Components/view-child/view-child.component';
+import { LoginComponent } from './Components/login/login.component';
+import { LayoutComponent } from './Components/layout/layout.component';
 
 export const routes: Routes = [
+  //  Default Router
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path: 'user',
-    component: UserComponent,
+    path: 'login',
+    component: LoginComponent,
   },
+  // Layout componnet
   {
-    path: 'admin',
-    component: AdminComponent,
-  },
-  {
-    path: 'data-binding',
-    component: DataBindingComponent,
-  },
-  {
-    path: 'structural-directives',
-    component: DirectivesComponent,
-  },
-  {
-    path: 'attribute-directive',
-    component: AttributeDirectiveComponent,
-  },
-  {
-    path: 'ng-template',
-    component: NgTemplateComponent,
-  },
-  {
-    path: 'ng-container',
-    component: NgContainerComponent,
-  },
-  {
-    path: 'control-flow',
-    component: ControlFlowComponent,
-  },
-  {
-    path: 'pipes',
-    component: PipesComponent,
-  },
-  {
-    path: 'view-child',
-    component: ViewChildComponent,
-  },
-  {
-    path: 'forms',
-    component: FormsHomeComponent,
+    path: '',
+    component: LayoutComponent,
+    //  All other routes will be children on layout component
     children: [
       {
-        path: 'reactive',
-        component: ReactiveFormsComponent,
+        path: 'user',
+        component: UserComponent,
       },
       {
-        path: 'template',
-        component: TemplateFormComponent,
+        path: 'admin',
+        component: AdminComponent,
+      },
+      {
+        path: 'data-binding',
+        component: DataBindingComponent,
+      },
+      {
+        path: 'structural-directives',
+        component: DirectivesComponent,
+      },
+      {
+        path: 'attribute-directive',
+        component: AttributeDirectiveComponent,
+      },
+      {
+        path: 'ng-template',
+        component: NgTemplateComponent,
+      },
+      {
+        path: 'ng-container',
+        component: NgContainerComponent,
+      },
+      {
+        path: 'control-flow',
+        component: ControlFlowComponent,
+      },
+      {
+        path: 'pipes',
+        component: PipesComponent,
+      },
+      {
+        path: 'view-child',
+        component: ViewChildComponent,
+      },
+      {
+        path: 'forms',
+        component: FormsHomeComponent,
+        children: [
+          {
+            path: 'reactive',
+            component: ReactiveFormsComponent,
+          },
+          {
+            path: 'template',
+            component: TemplateFormComponent,
+          },
+        ],
+      },
+      {
+        path: 'http-api',
+        children: [
+          {
+            path: '',
+            redirectTo: 'get',
+            pathMatch: 'full',
+          },
+          {
+            path: 'get',
+            component: GetApiComponent,
+          },
+          {
+            path: 'post',
+            component: PostApiComponent,
+          },
+        ],
+      },
+      {
+        path: 'lifecyclehooks',
+        component: LifeCycleComponent,
+      },
+      {
+        path: '**',
+        component: PageNotFoundComponent,
       },
     ],
-  },
-  {
-    path: 'http-api',
-    children: [
-      {
-        path: '',
-        redirectTo: 'get',
-        pathMatch: 'full',
-      },
-      {
-        path: 'get',
-        component: GetApiComponent,
-      },
-      {
-        path: 'post',
-        component: PostApiComponent,
-      },
-    ],
-  },
-  {
-    path: 'lifecyclehooks',
-    component: LifeCycleComponent,
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent,
   },
 ];

@@ -927,3 +927,33 @@ this.customName.variable
 Make sure to use the component in the Template(.html) file before accesing it otherwise it will not work as required
 
 Usually used with third party libraries like primepng etc
+
+## Decorators
+
+It is a piece of code function which adds additional functionality to the componnet or element
+
+```
+@Component({})
+export class componentName;
+```
+
+#### Class Decorators
+
+- Componenet
+- Injectables
+- Pipe
+- Module
+
+#### Propery Decorators
+
+- Input
+- Output
+- HostBinding
+
+#### Method Decorator
+
+- HostListener
+
+#### Parameter Decorator
+
+- inject

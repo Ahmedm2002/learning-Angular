@@ -768,7 +768,7 @@ Now emit the value when the button is clicked
 
 ```
 onClick(){
-  this.onBtnClick.emit('Value passed to parent from chid')
+  this.onBtnClick.emit('Value passed to parent from child')
 }
 ```
 
@@ -785,3 +785,51 @@ getData(data: any) {
   console.log(data)
 }
 ```
+
+## Component LifeCycle
+
+A sequence of steps that happen in component between its creation and destruction
+
+**Constructor is not a lifecycle Event**
+
+1. Constructor
+
+A js funtion which is executed when the page loads
+
+Used to call the funtion and initilize variables
+
+2. ngOnInit
+
+It is executed when the component has loaded.
+Api's calls are usually made in this hook
+
+3. ngDoCheck
+
+Any change happens in the content
+
+4. ngAfterViewInit, ngAfterContentInit
+
+If any external view, content or image is imported than after its intilization these fuctions are triggered.
+
+5. ViewInit , ViewCheck
+
+Executes after the HTML of the component and if any other is used then its html intilization
+
+After Complete view is intilized
+
+6. onDestroy
+
+When the component is destroyed
+Normally used to unsuscribe the api call
+
+7. ngOnChange
+
+Used in reuseable components
+When a value that is being passed to a resulabe component is changed then this is triggered
+
+### Mostly Used
+
+- onInit
+- afterViewInit
+- onDestroy
+- onChange

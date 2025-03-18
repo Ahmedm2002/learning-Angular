@@ -9,4 +9,6 @@ import { Component, Input } from '@angular/core';
 export class AlertComponent {
   @Input() message: string = '';
   @Input() styles: string = '';
+
+  alertCompVar: String = 'Demo Variable';
 }

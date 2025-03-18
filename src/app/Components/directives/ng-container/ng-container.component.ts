@@ -1,10 +1,10 @@
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-ng-container',
-  imports: [CommonModule, JsonPipe],
+  imports: [CommonModule],
   templateUrl: './ng-container.component.html',
   styleUrl: './ng-container.component.css',
 })

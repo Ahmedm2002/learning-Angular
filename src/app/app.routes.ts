@@ -16,6 +16,7 @@ import { PostApiComponent } from './Components/api/post-api/post-api.component';
 import { LifeCycleComponent } from './Components/life-cycle/life-cycle.component';
 import { NgTemplateComponent } from './Components/directives/ng-template/ng-template.component';
 import { NgContainerComponent } from './Components/directives/ng-container/ng-container.component';
+import { ViewChildComponent } from './Components/view-child/view-child.component';
 
 export const routes: Routes = [
   {
@@ -57,6 +58,10 @@ export const routes: Routes = [
   {
     path: 'pipes',
     component: PipesComponent,
+  },
+  {
+    path: 'view-child',
+    component: ViewChildComponent,
   },
   {
     path: 'forms',

@@ -792,37 +792,38 @@ A sequence of steps that happen in component between its creation and destructio
 
 **Constructor is not a lifecycle Event**
 
-1. Constructor
+#### _1. Constructor_
 
 A js funtion which is executed when the page loads
 
 Used to call the funtion and initilize variables
 
-2. ngOnInit
+#### _2. ngOnInit_
 
 It is executed when the component has loaded.
 Api's calls are usually made in this hook
 
-3. ngDoCheck
+#### _3. ngDoCheck_
 
 Any change happens in the content
 
-4. ngAfterViewInit, ngAfterContentInit
+#### _4. ngAfterViewInit, ngAfterContentInit_
 
 If any external view, content or image is imported than after its intilization these fuctions are triggered.
+Usually used with the @ViewChild
 
-5. ViewInit , ViewCheck
+#### _5. ViewInit , ViewCheck_
 
 Executes after the HTML of the component and if any other is used then its html intilization
 
 After Complete view is intilized
 
-6. onDestroy
+#### _6. onDestroy_
 
 When the component is destroyed
 Normally used to unsuscribe the api call
 
-7. ngOnChange
+#### _7. ngOnChange_
 
 Used in reuseable components
 When a value that is being passed to a resulabe component is changed then this is triggered
@@ -892,3 +893,37 @@ ng-container is also a directive
 It is also an imaginory div or html element
 
 **_See ng-container component for detailed information_**
+
+## @ViewChild()
+
+It is similar to document.getElementById() or document.getElementByClassName() which returns the element based on the Id and add styles or chnage values of the element
+
+Getting an instace of DOM element
+
+to use viewChild first import it
+
+then the element you want to select give it a name starting with #
+
+```
+<input type="text" class="input" value="John Doe" #nameInput />
+```
+
+Selecting the element in the class
+
+create a view child with the name of the elemnt in the paranthesis without #
+
+```
+@ViewChild('nameInput') nameInputBox? :ElementRef;
+```
+
+it is also used to access the variables of the child componnets
+
+```
+@ViewChild(ComponentName) customName? : ComponentName;
+
+this.customName.variable
+```
+
+Make sure to use the component in the Template(.html) file before accesing it otherwise it will not work as required
+
+Usually used with third party libraries like primepng etc

@@ -957,3 +957,53 @@ export class componentName;
 #### Parameter Decorator
 
 - inject
+
+## Guard
+
+It is a service that allows you to control the access to different routes of the application
+
+**_canActivateGuard_**
+
+Scenario:
+A user should not be able to view the endpoints if he is not logged in but still if he know the routes names he can visit them so to stop this we use canActiveGuard
+
+To createa a routeGuard
+
+```
+ng generate guard <guardName>
+OR
+ng g g <guardName>
+```
+
+This will create two files
+
+```
+auth.guard.spec.ts    -> Testing File
+auth.guard.ts         -> Functionality
+```
+
+auth.guard.ts
+
+It is a arrow funciton that returns true or false
+
+- true = authenticated
+- false = not authenticated
+
+E.g
+
+```
+import { CanActivateFn, Router } from '@angular/router';
+import { inject } from '@angular/core';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  const router = inject(Router);
+
+  const loggedUser = localStorage.getItem('user');
+  if (loggedUser != null) {
+    return true;
+  } else {
+    router.navigateByUrl('login');
+    return false;
+  }
+};
+```

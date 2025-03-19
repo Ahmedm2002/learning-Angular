@@ -61,7 +61,6 @@ export class LoginComponent {
     // } else {
     //   alert('Invalid user name and password');
     // }
-    console.log(this.dynamicUserForm.value);
     this.userService.userLogin(this.dynamicUserForm.value).subscribe(
       (res: any) => {
         if (res.result) {

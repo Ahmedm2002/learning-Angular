@@ -19,6 +19,7 @@ import { NgContainerComponent } from './Components/directives/ng-container/ng-co
 import { ViewChildComponent } from './Components/view-child/view-child.component';
 import { LoginComponent } from './Components/login/login.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { authGuard } from './service/authGuard/auth.guard';
 
 export const routes: Routes = [
   //  Default Router
@@ -93,6 +94,7 @@ export const routes: Routes = [
       },
       {
         path: 'http-api',
+        canActivate: [authGuard],
         children: [
           {
             path: '',

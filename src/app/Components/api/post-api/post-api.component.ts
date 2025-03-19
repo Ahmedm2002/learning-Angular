@@ -9,6 +9,7 @@ import {
 import { DepartmentService } from '../../../service/DeptService/department.service';
 import { AlertComponent } from '../../../alert/alert.component';
 import { CustomBtnComponent } from '../../../resueable-components/custom-btn/custom-btn.component';
+import { Department } from '../../../Model/Class/department';
 
 @Component({
   selector: 'app-post-api',
@@ -25,7 +26,7 @@ export class PostApiComponent implements OnInit {
     console.log(data);
   }
 
-  departmentList: any[] = [];
+  departmentList: Department[] = [];
 
   deptForm = new FormGroup({
     departmentId: new FormControl(0),
@@ -120,7 +121,7 @@ export class PostApiComponent implements OnInit {
   //     });
   // }
 
-  onEdit(department: any) {
+  onEdit(department: Department) {
     this.deptForm.setValue({
       departmentId: department.departmentId,
       departmentName: department.departmentName,
@@ -177,7 +178,7 @@ export class PostApiComponent implements OnInit {
     );
   }
 
-  deleteRecord(department: any) {
+  deleteRecord(department: Department) {
     const confirmDelete = confirm(
       `Are you sure to delete ${department.departmentName} department`
     );

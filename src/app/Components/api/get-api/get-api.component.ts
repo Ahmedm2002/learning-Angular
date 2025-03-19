@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AlertComponent } from '../../../alert/alert.component';
 import { CustomBtnComponent } from '../../../resueable-components/custom-btn/custom-btn.component';
+import { Customer } from '../../../Model/Class/customer';
+import { IUser } from '../../../Model/Interface/IUser';
 
 @Component({
   selector: 'app-get-api',
@@ -22,12 +24,11 @@ export class GetApiComponent {
     this.getCustomers();
   }
 
-  userList: any[] = [];
+  userList: IUser[] = [];
 
   getAllUser() {
     this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(
       (res: any) => {
-        console.log(res);
         this.userList = res;
       },
       (error) => {
@@ -36,13 +37,12 @@ export class GetApiComponent {
     );
   }
 
-  customerList: any[] = [];
+  customerList: Customer[] = [];
 
   getCustomers() {
     this.http
       .get('https://projectapi.gerasim.in/api/RealEstate/GetAllCustomers')
       .subscribe((res: any) => {
-        console.log(res);
         this.customerList = res.data;
       });
   }

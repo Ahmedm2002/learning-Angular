@@ -6,25 +6,29 @@
 <div class="container">
   <div class="box">
     <h1>Sign In</h1>
-    <form [formGroup]="userForm">
+    <!-- <form [formGroup]="userForm"> -->
+    <form [formGroup]="dynamicUserForm">
       <div class="row">
         <label for="username"></label>
         <input
           type="text"
+          formControlName="EmailId"
           id="username"
           placeholder="Username"
           required
-          formControlName="userName"
         />
+        <!--  Static Form  -->
+        <!-- formControlName="userName" -->
+        <!-- formControlName="password" -->
       </div>
       <div class="row">
         <label for="password"></label>
         <input
           id="password"
           type="password"
+          formControlName="Password"
           placeholder="Password"
           required
-          formControlName="password"
         />
       </div>
       <button class="login" (click)="login()">Login</button>

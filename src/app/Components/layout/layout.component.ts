@@ -8,7 +8,11 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
-  constructor(private router: Router) {}
+  user: any;
+  constructor(private router: Router) {
+    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(this.user);
+  }
   logOut() {
     localStorage.removeItem('user');
     this.router.navigateByUrl('');

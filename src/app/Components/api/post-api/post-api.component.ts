@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { DepartmentService } from '../../../service/department.service';
+import { DepartmentService } from '../../../service/DeptService/department.service';
 import { AlertComponent } from '../../../alert/alert.component';
 import { CustomBtnComponent } from '../../../resueable-components/custom-btn/custom-btn.component';
 

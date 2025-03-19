@@ -20,6 +20,7 @@ import { ViewChildComponent } from './Components/view-child/view-child.component
 import { LoginComponent } from './Components/login/login.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { authGuard } from './service/authGuard/auth.guard';
+import { SignalsComponent } from './signals/signals.component';
 
 export const routes: Routes = [
   //  Default Router
@@ -41,6 +42,10 @@ export const routes: Routes = [
       {
         path: 'user',
         component: UserComponent,
+      },
+      {
+        path: 'signals',
+        component: SignalsComponent,
       },
       {
         path: 'admin',

@@ -136,7 +136,9 @@ export class PostApiComponent implements OnInit {
       departmentLogo: '',
     });
   }
-  // Using Servies
+
+  //  /************************** Using Servies **************************/
+
   getDepartments() {
     this.deptSer.getDepartments().subscribe(
       (res: any) => (this.departmentList = res.data),

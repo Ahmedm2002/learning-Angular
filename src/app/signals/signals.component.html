@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-4">
+    {{ count() }}
+  </div>
+  <div class="col-3">
+    <h4>{{ cart().name }}</h4>
+    <br />
+
+    <div class="text-end">
+      @if(cart().isAvailable){
+      <span class="text-success">In Stock</span>
+      } @else {
+      <span class="text-danger">Out of Stock</span>
+      }
+    </div>
+    <p>PKR: {{ cart().price }}/-</p>
+    <div class="row">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+    <br />
+  </div>
+  <div class="col-4">{{ names()[0] }}</div>
+</div>

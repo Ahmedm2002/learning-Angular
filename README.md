@@ -1115,3 +1115,19 @@ export interface IUser {
 
 - Creating variable to bind with form => Create Class
 - Create variable to hold array => Create Interface
+
+## Signal
+
+A Signal is a wrapper around the value that notifies its consumers (suscriber functions) when its value changes
+
+It is the replacement of Observable in rxjs.
+
+**Signals may be either writable or read-only.**
+
+Signal's values are read by calling its getter funciton
+
+### Signal Methods
+
+- .set(value) => sets new value of the signal
+- .update(prev => prev + newVal) => Updates the value of signal based on previous value
+- .computed(func) => Derive their value from other signals and are **read-only**

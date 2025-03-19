@@ -1007,3 +1007,44 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
 };
 ```
+
+## Constant Files
+
+Create folder in app folder (not necessary)
+
+create file
+
+```
+fileName.ts
+```
+
+Write boilerplate code
+
+```
+export const Constant = {}
+```
+
+Now store key value pairs in it
+
+Convention
+
+Store key in Caps and separate by \_ if multiple words
+
+```
+API_URL = 'https://projectapi.gerasim.in/api/'
+```
+
+To access the variables and objects in the contant file first import the constant from the file
+
+```
+Constant.API_URL
+```
+
+Value that are constant among the project are placed in constant file like error messages, success messages, api urls etc
+
+```
+VALIDATION_MESSAGES : {
+  REQURIED: 'Field is required',
+  MIN_LENGTH: 8
+}
+```

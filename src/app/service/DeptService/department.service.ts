@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Constant } from '../../constants/constants';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,18 @@ export class DepartmentService {
   apiUrl = 'https://projectapi.gerasim.in/api/Complaint/';
 
   getDepartments() {
-    return this.http.get(`${this.apiUrl}GetParentDepartment`);
+    // return this.http.get(`${this.apiUrl}GetParentDepartment`);
+    return this.http.get(
+      Constant.API_URL + Constant.DEPARTMENT_METHODS.GET_PARENT_DEPT
+    );
   }
 
   saveNewDept(department: any) {
-    return this.http.post(`${this.apiUrl}AddNewDepartment`, department);
+    // return this.http.post(`${this.apiUrl}AddNewDepartment`, department);
+    return this.http.post(
+      Constant.API_URL + Constant.DEPARTMENT_METHODS.ADD_NEW_DEPT,
+      department
+    );
   }
 
   onUpdate(department: any) {

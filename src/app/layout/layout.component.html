@@ -195,6 +195,18 @@
           <span class="text-info mx-2">{{ user?.emailId }}</span>
         </p>
         }
+        <select
+          name=""
+          id=""
+          [(ngModel)]="selectedRole"
+          class="p-1 m-1"
+          (ngModelChange)="onChange($event)"
+        >
+          <option value="Select Role"></option>
+          <option value="Guest">Guest</option>
+          <option value="Admin">Admin</option>
+          <option value="user">User</option>
+        </select>
         <button class="btn btn-danger" (click)="logOut()">Log Out</button>
         <!-- <button class="btn btn-danger">Log Out</button> -->
       </div>

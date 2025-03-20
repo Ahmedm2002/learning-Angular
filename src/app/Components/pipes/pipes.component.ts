@@ -9,6 +9,7 @@ import {
 } from '@angular/common';
 import { Observable } from 'rxjs';
 import { NaPipe } from '../../customPipes/na.pipe';
+import { DepartmentService } from '../../service/DeptService/department.service';
 
 @Component({
   selector: 'app-pipes',
@@ -30,8 +31,17 @@ export class PipesComponent {
 
   currentTime: Observable<Date> = new Observable<Date>();
 
-  constructor() {
+  selectedRoleBehaviour: string = '';
+  selectedRoleSubject: string = '';
+
+  constructor(private deptServ: DepartmentService) {
     this.currentTime = interval(1000).pipe(map(() => new Date()));
+    this.deptServ.onRoleChange$.subscribe((role: string) => {
+      this.selectedRoleSubject = role;
+    });
+    this.deptServ.role$.subscribe((role: string) => {
+      this.selectedRoleBehaviour = role;
+    });
   }
   city: string = '';
 }

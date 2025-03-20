@@ -1,6 +1,10 @@
 // import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
 import { AlertComponent } from '../../../alert/alert.component';
 import { CustomBtnComponent } from '../../../resueable-components/custom-btn/custom-btn.component';
 import { Customer } from '../../../Model/Class/customer';
@@ -12,6 +16,7 @@ import { IUser } from '../../../Model/Interface/IUser';
   imports: [AlertComponent, CustomBtnComponent],
   templateUrl: './get-api.component.html',
   styleUrl: './get-api.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GetApiComponent {
   // Using Dependency Injectsion
@@ -19,9 +24,13 @@ export class GetApiComponent {
   // http = Inject(HttpClient);
 
   // Using Constructor
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private changeDetectionRef: ChangeDetectorRef
+  ) {
     this.getAllUser();
     this.getCustomers();
+    this.changeDetectionRef.detectChanges();
   }
 
   userList: IUser[] = [];

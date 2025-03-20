@@ -1,4 +1,7 @@
 <div class="row text-center">
   <h3>Welcome to Dashboard</h3>
+  @if(userRole){
+  <h4>Role: {{ userRole }}</h4>
+  }
   <p class="text-primary">Mr. {{ user["emailId"] }}</p>
 </div>

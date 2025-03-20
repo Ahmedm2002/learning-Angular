@@ -1139,3 +1139,71 @@ Computed are read-only signals derived from other signals when the value of the 
 ```
 nameRollNo = computed(() => this.fullName() + ' ' + this.rollNo());
 ```
+
+## RxJX
+
+Reactive Extension Library for Javascirpt
+
+**$** means that the variable stores observable value
+
+### Subject
+
+First create a subject in the service file or any .ts file
+
+```
+public userRole : Subject<string> = new Subject<string>()
+```
+
+make the variable public so it can be assesed outside the services by other classes
+
+```
+constructo(private serviceName : ComponentName){
+  this.serviceName.userRole.suscrible((role: string) => {
+    console.log(string)
+  })
+}
+```
+
+#### Subject Limitations
+
+When multiple component suscribe to a subject then only the components which are currently rendered on DOM will get the lastest value if some component is loaded in future the value is not give to the newly added component
+
+To overcome this behaviourSubject is introduced it is similar to subject but it automatically reflects the value when changed or the compoenent is loaded
+**Requires initial value while declaring**
+
+Can be suscribed in
+
+- Constructor
+- ngOnInit
+- ngAfterViewInit
+
+## Change Detection Angular
+
+Zone.js is a popular libraray that re-renders the ui whenever the value of a variable is changed
+
+Two types of change detections
+
+1. key value differ
+2. itterateable differ
+
+Remove the re-rendering of ui on variable state/value changed
+
+```
+@Component({
+  ...
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  ...
+})
+```
+
+To manually trigger re-render
+
+Create object of changeDetectionRef in constructor
+
+```
+constructor(private cdRef : ChangeDetectionRef){
+  this.cdRef.detachChanges()
+}
+```
+
+In case of Signals if the changeDetection is off then the ui wil be re-rendered

@@ -18,7 +18,7 @@ import { NgTemplateComponent } from './Components/directives/ng-template/ng-temp
 import { NgContainerComponent } from './Components/directives/ng-container/ng-container.component';
 import { ViewChildComponent } from './Components/view-child/view-child.component';
 import { LoginComponent } from './Components/login/login.component';
-import { LayoutComponent } from './Components/layout/layout.component';
+import { LayoutComponent } from './layout/layout.component';
 import { authGuard } from './service/authGuard/auth.guard';
 import { SignalsComponent } from './signals/signals.component';
 

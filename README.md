@@ -1131,3 +1131,11 @@ Signal's values are read by calling its getter funciton
 - .set(value) => sets new value of the signal
 - .update(prev => prev + newVal) => Updates the value of signal based on previous value
 - .computed(func) => Derive their value from other signals and are **read-only**
+
+#### Computed
+
+Computed are read-only signals derived from other signals when the value of the dependent signal is changed computed signal is also changed.
+
+```
+nameRollNo = computed(() => this.fullName() + ' ' + this.rollNo());
+```
